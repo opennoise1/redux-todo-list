@@ -1,17 +1,17 @@
 import * as types from '../constants/actionTypes';
 
 // Put all our actions in here
-export const addItem = (itemID) => ({
+export const addTodo = (itemID) => ({
   type: types.ADD_ITEM,
   payload: itemID,
 });
 
-export const deleteItem = (itemID) => ({
+export const deleteTodo = (itemID) => ({
   type: types.DELETE_ITEM,
   payload: itemID,
 });
 
-export const completeItem = (itemID) => ({
+export const completeTodo = (itemID) => ({
   type: types.COMPLETE_ITEM,
   payload: itemID,
 });

@@ -11,6 +11,7 @@ devDependencies:
   babel-preset-env: 1.7.0
   babel-preset-react: 6.24.1
   html-webpack-plugin: 4.4.1_webpack@4.44.1
+  redux-devtools-extension: 2.13.8_redux@4.0.5
   webpack: 4.44.1_7d74d9f6ceb0e540c1e44d9709220c58
   webpack-cli: 3.3.12_webpack@4.44.1
   webpack-dev-server: 3.11.0_7d74d9f6ceb0e540c1e44d9709220c58
@@ -4954,6 +4955,14 @@ packages:
     optional: true
     resolution:
       integrity: sha512-0xe001vZBnJEK+uKcj8qOhyAKPzIT+gStxWr3LCB0DwcXR5NZJ3IaC+yGnHCYzB/S7ov3m3EEbZI2zeNvX+hGQ==
+  /redux-devtools-extension/2.13.8_redux@4.0.5:
+    dependencies:
+      redux: 4.0.5
+    dev: true
+    peerDependencies:
+      redux: ^3.1.0 || ^4.0.0
+    resolution:
+      integrity: sha512-8qlpooP2QqPtZHQZRhx3x3OP5skEV1py/zUdMY28WNAocbafxdG2tRD1MWE7sp8obGMNYuLWanhhQ7EQvT1FBg==
   /redux/4.0.5:
     dependencies:
       loose-envify: 1.4.0
@@ -6168,6 +6177,7 @@ specifiers:
   react-dom: ^16.13.1
   react-redux: ^7.2.1
   redux: ^4.0.5
+  redux-devtools-extension: ^2.13.8
   webpack: ^4.44.1
   webpack-cli: ^3.3.12
   webpack-dev-server: ^3.11.0
