@@ -18,31 +18,40 @@
 
       .todoCreator {
         display: flex;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
+      }
+      .todoCreator > input {
         width: 400px;
+        font-size: 16px;
       }
 
       .todoList {
-        width: 400px;
+        width: 500px;
         border: 2px solid #222;
       }
 
       .todoItem {
+        box-sizing: border-box;
         width: 100%;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: start;
+        padding: 8px 16px;
+        transition: background-color 0.1s;
       }
-
       .todoItem:nth-child(odd) {
         background-color: #eee;
+      }
+      .todoItem:hover {
+        background-color: rgb(225, 235, 255);
       }
     </style>
   </head>
   <body>
-    <h1>To Do List</h1>
+    <h1>To <span style="color: red">Do</span> List</h1>
     <div id="root"></div>
   </body>
 </html>

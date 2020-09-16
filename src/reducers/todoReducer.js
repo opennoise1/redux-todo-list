@@ -10,8 +10,9 @@ export default function todoReducer(state = initialState, action) {
 
   switch (action.type) {
     case types.ADD_ITEM:
-      todoList = state.todoList;
-      todoList.push(createNewTodo(note, itemId));
+      // Make a copy of the todo list in order to keep the state immutable
+      todoList = state.todoList.slice();
+      todoList.push(createNewTodo(note, action.payload));
 
       // return state
       return {
@@ -20,21 +21,27 @@ export default function todoReducer(state = initialState, action) {
       };
 
     case types.DELETE_ITEM:
-      toDoList = state.toDoList;
-      let deletedItem = getItemIndex(toDoList, itemId);
+      todoList = state.todoList;
+      let deletedItem = getItemIndex(todoList, action.payload);
       todoList.pop(deletedItem);
 
       return {
         ...state,
-        toDoList,
+        todoList,
       };
 
     case types.COMPLETE_ITEM:
-      totalCompleted = totalCompleted + 1;
-      // TODO: update the todo item with {completed: true}
+      todoList = state.todoList.map((todo) => {
+        if (todo.id === action.payload) {
+          return { ...todo, completed: true };
+        } else {
+          return todo;
+        }
+      });
+
       return {
         ...state,
-        totalCompleted,
+        totalCompleted: totalCompleted + 1,
       };
 
     case types.CLEAR_LIST:
@@ -48,10 +55,13 @@ export default function todoReducer(state = initialState, action) {
   }
 }
 
+//// HELPER FUNCTIONS
+
 function createNewTodo(note, id) {
   return {
     note,
     id,
+    completed: false,
   };
 }
 
